@@ -22,7 +22,7 @@ var validate = {
       return result;
     }
 
-    if (checkWords(feedback) && parseInt(scale) >= 10 && email.includes("@")) {
+    if (checkWords(feedback) && parseInt(scale) >= 10 && email.includes("@", ".") && feedback != "" && scale != "" && email != "") {
       result = true;
     }
 
@@ -30,7 +30,7 @@ var validate = {
   }
 };
 
-module.exports = validate;
+module.exports = validate
 
 // console.log(validate.run('amazing awesome perfect text', 'lala', 'this@this.com')); // false because of scale
 // console.log(validate.run('amazing awesome perfect text', '3', 'thisthis.com')); // false because of email and scale
