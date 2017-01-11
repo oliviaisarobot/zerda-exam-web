@@ -20,7 +20,6 @@ var Proccess = function() {
       resultBox.className = 'show';
       status.className = 'show';
       response = res.status;
-      console.log(response);
       if (response === 'ok') {
         ajax.getProjects(function(res){
           projects = res.projects;
@@ -50,7 +49,7 @@ var Proccess = function() {
 
       window.addEventListener('keydown', function(event) {
         if (event.keyCode === 13) {
-          displayResult();
+          sendForm();
         }
       })
 
