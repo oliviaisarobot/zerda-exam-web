@@ -15,17 +15,27 @@
       <textarea id="feedback"></textarea>
 
       <label>On a scale of 1 to 10, how likely are you to recommend Green Fox Academy to a friend?</label>
-      <input id="scale" type="number" />
+      <input id="scale" type="number" min="0" max="10" step="1" />
 
       <label>Your e-mail address:</label>
       <input id="email" type="email" />
 
       <input id="submit" type="submit" value="Send" />
 
+      <div id="result" class="hide">
+        <h2>Available projects:</h2>
+        <p id="status" class="hide">LOADING</p>
+        <ol id="projectlist"></ol>
+      </div>
+
     </article>
 
     <script src="ajax.js"></script>
     <script src="script.js"></script>
+
+    <script>
+      Proccess.init();
+    </script>
 
   </body>
 </html>
