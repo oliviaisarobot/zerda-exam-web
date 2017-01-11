@@ -47,7 +47,7 @@ app.post('/exam', function(req, res) {
       res.json({"status": "ok"});
     });
   } else {
-    // res.status(400);
+    res.status(400);
     var response = {"status": "error", "message": "thank you"};
     res.send(response);
   }
