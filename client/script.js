@@ -14,17 +14,24 @@ var Proccess = function() {
 
     var input = {"feedback": feedback.value, "scale": parseInt(scale.value), "email": email.value};
 
-    ajax.postFeedback(input, function() {
+    var response = 'error';
+
+    ajax.postFeedback(input, function(res) {
       resultBox.className = 'show';
       status.className = 'show';
+      response = res.status;
+      console.log(response);
+      if (response === 'ok') {
+        ajax.getProjects(function(res){
+          projects = res.projects;
+          status.className = 'hide';
+          displayResult();
+        })
+      } else {
+        status.innerHTML = 'Oooops! Could you have made a mistake? Hint: make sure your feedback is overwhelmingly positive, and your e-mail address contains a @ and a . character as well. Don\'t leave any fields unfilled.'
+      }
     });
 
-    ajax.getProjects(function(res){
-      projects = res.projects;
-      status.className = 'hide';
-
-      displayResult();
-    })
   };
 
   function displayResult() {
