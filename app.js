@@ -41,7 +41,7 @@ app.get('/exam', function(req, res) {
 app.post('/exam', function(req, res) {
   if (validate.run(req.body.feedback, req.body.scale, req.body.email)) {
     con.query({
-      sql: 'INSERT INTO `results` (`feedback`, `scale`, `email`) VALUES ("'+req.body.feedback+'", "'+req.body.scale+'", "'+req.body.eamil+'")',
+      sql: 'INSERT INTO `results` (`feedback`, `scale`, `email`) VALUES ("'+req.body.feedback+'", "'+req.body.scale+'", "'+req.body.email+'")',
     }, function(err, rows, fields) {
       if (err) throw err;
       res.json({"status": "ok"});
